@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.9.2 on win32)" generated="20210524 17:46:55.624" rpa="false" schemaversion="2">
+<suite id="s1" name="Swagger" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger">
+<suite id="s1-s1" name="Put" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\put.robot">
+<test id="s1-s1-t1" name="TC_007_PUT_Customer">
+<kw name="Load JSON From File" library="JSONLibrary">
+<var>${json}</var>
+<arg>Tests/Swagger/address.json</arg>
+<doc>Load JSON from file.</doc>
+<msg timestamp="20210524 17:46:55.812" level="INFO">${json} = [{'address': {'addressLine1': 'string', 'addressLine2': 'string', 'addressLine3': 'string', 'city': 'string', 'companyName': 'string', 'country': {'abbreviation': 'string', 'name': 'string'}, 'firstNa...</msg>
+<status status="PASS" starttime="20210524 17:46:55.811" endtime="20210524 17:46:55.812"/>
+</kw>
+<kw name="Update Value To Json" library="JSONLibrary">
+<var>${json_object}</var>
+<arg>${json}</arg>
+<arg>$.address.addressLine1</arg>
+<arg>Ratchadapisek Road</arg>
+<doc>Update value to JSON using JSONPath</doc>
+<msg timestamp="20210524 17:46:55.834" level="INFO">${json_object} = [{'address': {'addressLine1': 'string', 'addressLine2': 'string', 'addressLine3': 'string', 'city': 'string', 'companyName': 'string', 'country': {'abbreviation': 'string', 'name': 'string'}, 'firstNa...</msg>
+<status status="PASS" starttime="20210524 17:46:55.813" endtime="20210524 17:46:55.834"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${queryParams}</var>
+<arg>customerId=200</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:55.835" level="INFO">${queryParams} = {'customerId': '200'}</msg>
+<status status="PASS" starttime="20210524 17:46:55.835" endtime="20210524 17:46:55.835"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:55.836" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:55.835" endtime="20210524 17:46:55.836"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>address=${address} addressName=string applicationContext=${applicationContext} archived=${archived} id=0</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:55.836" level="FAIL">Variable '${address}' not found.</msg>
+<status status="FAIL" starttime="20210524 17:46:55.836" endtime="20210524 17:46:55.837"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Accept=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:55.837" endtime="20210524 17:46:55.837"/>
+</kw>
+<kw name="Put On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/customer/address?</arg>
+<arg>params=${queryParams}</arg>
+<arg>json=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:55.837" endtime="20210524 17:46:55.837"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:55.837" endtime="20210524 17:46:55.837"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:55.838" endtime="20210524 17:46:55.838"/>
+</kw>
+<status status="FAIL" starttime="20210524 17:46:55.811" endtime="20210524 17:46:55.838">Variable '${address}' not found.</status>
+</test>
+<status status="FAIL" starttime="20210524 17:46:55.654" endtime="20210524 17:46:55.839"/>
+</suite>
+<suite id="s1-s2" name="TC 001 GET Request catalog categories" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_001_GET_Request_catalog_categories.robot">
+<test id="s1-s2-t1" name="TC_001_Get_Request_catalog">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>catalog</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:55.843" level="INFO">Creating Session using : alias=catalog, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:55.843" endtime="20210524 17:46:55.843"/>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>catalog</arg>
+<arg>/catalog/categories</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20210524 17:46:56.145" level="INFO">GET Request : url=http://localhost:8082/api/v1/catalog/categories 
+ path_url=/api/v1/catalog/categories 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210524 17:46:56.145" level="INFO">GET Response : url=http://localhost:8082/api/v1/catalog/categories 
+ status=200, reason= 
+ headers={'Set-Cookie': 'JSESSIONID=294BD0592930641B02AEA0561F683DD8; Path=/api/v1; HttpOnly', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 24 May 2021 16:46:56 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"categories":[{"id":2001,"name":"Home","description":"Home","longDescription":null,"active":true,"url":null,"urlKey":null,"activeStartDate":null,"activeEndDate":null,"subcategories":null,"products":null,"categoryAttributes":null,"archived":null},{"id":2002,"name":"Hot Sauces","description":"Hot Sauces","longDescription":null,"active":true,"url":null,"urlKey":null,"activeStartDate":null,"activeEndDate":null,"subcategories":null,"products":null,"categoryAttributes":null,"archived":null},{"id":2003,"name":"Merchandise","description":"Merchandise","longDescription":null,"active":true,"url":null,"urlKey":null,"activeStartDate":null,"activeEndDate":null,"subcategories":null,"products":null,"categoryAttributes":null,"archived":null},{"id":2004,"name":"Clearance","description":"Clearance","longDescription":null,"active":true,"url":null,"urlKey":null,"activeStartDate":null,"activeEndDate":null,"subcategories":null,"products":null,"categoryAttributes":null,"archived":null},{"id":2007,"name":"Mens","description":"Mens","longDescription":null,"active":true,"url":null,"urlKey":null,"activeStartDate":null,"activeEndDate":null,"subcategories":null,"products":null,"categoryAttributes":null,"archived":null},{"id":2008,"name":"Womens","description":"Womens","longDescription":null,"active":true,"url":null,"urlKey":null,"activeStartDate":null,"activeEndDate":null,"subcategories":null,"products":null,"categoryAttributes":null,"archived":null}]} 
+ </msg>
+<msg timestamp="20210524 17:46:56.146" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210524 17:46:55.844" endtime="20210524 17:46:56.146"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.146" endtime="20210524 17:46:56.146"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.146" endtime="20210524 17:46:56.147"/>
+</kw>
+<status status="PASS" starttime="20210524 17:46:55.843" endtime="20210524 17:46:56.147"/>
+</test>
+<status status="PASS" starttime="20210524 17:46:55.840" endtime="20210524 17:46:56.148"/>
+</suite>
+<suite id="s1-s3" name="TC 002 POST ERROR Customer" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_002_POST_ERROR_Customer.robot">
+<test id="s1-s3-t1" name="TC_002_Post_Request">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:56.151" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:56.151" endtime="20210524 17:46:56.152"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>{"customerAttributes":[{"customerId":200, "id":200, "name":"Bruno", "value":0}], "emailAddress":"xxxx@gmail.com", "firstName":"algo", "id":200, "lastName":"Oliveira", "registered":true}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.152" level="FAIL">Expected even number of keys and values, got 1.</msg>
+<status status="FAIL" starttime="20210524 17:46:56.152" endtime="20210524 17:46:56.152"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.152" endtime="20210524 17:46:56.152"/>
+</kw>
+<kw name="Post On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/customer</arg>
+<arg>json=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.153" endtime="20210524 17:46:56.153"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.153" endtime="20210524 17:46:56.153"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.153" endtime="20210524 17:46:56.153"/>
+</kw>
+<status status="FAIL" starttime="20210524 17:46:56.151" endtime="20210524 17:46:56.153">Expected even number of keys and values, got 1.</status>
+</test>
+<status status="FAIL" starttime="20210524 17:46:56.149" endtime="20210524 17:46:56.154"/>
+</suite>
+<suite id="s1-s4" name="TC 003 GET Customer" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_003_GET_Customer.robot">
+<test id="s1-s4-t1" name="TC_003_GET_Customer">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${queryParams}</var>
+<arg>email=bruno@gmail.com</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.158" level="INFO">${queryParams} = {'email': 'bruno@gmail.com'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.158" endtime="20210524 17:46:56.158"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:56.159" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:56.158" endtime="20210524 17:46:56.159"/>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/api/v1/customer?</arg>
+<arg>params=${queryParams}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20210524 17:46:56.175" level="INFO">GET Request : url=http://localhost:8082/api/v1/customer?email=bruno%40gmail.com 
+ path_url=/api/v1/customer?email=bruno%40gmail.com 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210524 17:46:56.175" level="INFO">GET Response : url=http://localhost:8082/api/v1/customer?email=bruno%40gmail.com 
+ status=200, reason= 
+ headers={'Set-Cookie': 'JSESSIONID=4BC968E308322022174889C3CD778EAA; Path=/api/v1; HttpOnly', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 24 May 2021 16:46:56 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":200,"firstName":"algo","lastName":"Oliveira","emailAddress":"bruno@gmail.com","registered":false,"customerAttributes":[{"id":200,"name":"Bruno","value":"0","customerId":200}]} 
+ </msg>
+<msg timestamp="20210524 17:46:56.175" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210524 17:46:56.159" endtime="20210524 17:46:56.175"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.176" endtime="20210524 17:46:56.176"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.176" endtime="20210524 17:46:56.177"/>
+</kw>
+<status status="PASS" starttime="20210524 17:46:56.158" endtime="20210524 17:46:56.177"/>
+</test>
+<status status="PASS" starttime="20210524 17:46:56.155" endtime="20210524 17:46:56.178"/>
+</suite>
+<suite id="s1-s5" name="TC 004 POST Customer" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_004_POST_Customer.robot">
+<test id="s1-s5-t1" name="TC_004_POST_Customer">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:56.180" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:56.180" endtime="20210524 17:46:56.180"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${inner}</var>
+<arg>customerId=200</arg>
+<arg>id=200</arg>
+<arg>name=Bruno</arg>
+<arg>value=0</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.181" level="INFO">${inner} = {'customerId': '200', 'id': '200', 'name': 'Bruno', 'value': '0'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.180" endtime="20210524 17:46:56.181"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${array}</var>
+<arg>${inner}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20210524 17:46:56.181" level="INFO">${array} = [{'customerId': '200', 'id': '200', 'name': 'Bruno', 'value': '0'}]</msg>
+<status status="PASS" starttime="20210524 17:46:56.181" endtime="20210524 17:46:56.181"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>customerAttributes=${array}</arg>
+<arg>emailAddress=bruno@gmail.com</arg>
+<arg>firstName=algo</arg>
+<arg>id=200</arg>
+<arg>lastName=Oliveira</arg>
+<arg>registered=True</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.181" level="INFO">${body} = {'customerAttributes': [{'customerId': '200', 'id': '200', 'name': 'Bruno', 'value': '0'}], 'emailAddress': 'bruno@gmail.com', 'firstName': 'algo', 'id': '200', 'lastName': 'Oliveira', 'registered': '...</msg>
+<status status="PASS" starttime="20210524 17:46:56.181" endtime="20210524 17:46:56.181"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Accept=application/json</arg>
+<arg>Authorization=Basic YWRtaW46YWRtaW4=' -d</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.182" level="INFO">${header} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': "Basic YWRtaW46YWRtaW4=' -d"}</msg>
+<status status="PASS" starttime="20210524 17:46:56.181" endtime="20210524 17:46:56.182"/>
+</kw>
+<kw name="Post On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/customer</arg>
+<arg>json=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20210524 17:46:56.203" level="INFO">POST Request : url=http://localhost:8082/api/v1/customer 
+ path_url=/api/v1/customer 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': "Basic YWRtaW46YWRtaW4=' -d", 'Content-Length': '206'} 
+ body=b'{"customerAttributes": [{"customerId": "200", "id": "200", "name": "Bruno", "value": "0"}], "emailAddress": "bruno@gmail.com", "firstName": "algo", "id": "200", "lastName": "Oliveira", "registered": "True"}' 
+ </msg>
+<msg timestamp="20210524 17:46:56.203" level="INFO">POST Response : url=http://localhost:8082/api/v1/customer 
+ status=200, reason= 
+ headers={'Set-Cookie': 'JSESSIONID=4B02949C438FC2EC609D8F50BEF3F7AF; Path=/api/v1; HttpOnly', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 24 May 2021 16:46:56 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":200,"firstName":"algo","lastName":"Oliveira","emailAddress":"bruno@gmail.com","registered":false,"customerAttributes":[{"id":200,"name":"Bruno","value":"0","customerId":200}]} 
+ </msg>
+<msg timestamp="20210524 17:46:56.203" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210524 17:46:56.183" endtime="20210524 17:46:56.203"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.204" endtime="20210524 17:46:56.204"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.205" endtime="20210524 17:46:56.205"/>
+</kw>
+<status status="PASS" starttime="20210524 17:46:56.180" endtime="20210524 17:46:56.205"/>
+</test>
+<status status="PASS" starttime="20210524 17:46:56.178" endtime="20210524 17:46:56.206"/>
+</suite>
+<suite id="s1-s6" name="TC 005 DELETE Customer" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_005_DELETE_Customer.robot">
+<test id="s1-s6-t1" name="TC_006_DELETE_Customer_addresses">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${queryParams}</var>
+<arg>customerId=200</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.210" level="INFO">${queryParams} = {'customerId': '200'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.210" endtime="20210524 17:46:56.211"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:56.211" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:56.211" endtime="20210524 17:46:56.211"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Accept=application/json</arg>
+<arg>Authorization=Basic YWRtaW46YWRtaW4=</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.211" level="INFO">${header} = {'Accept': 'application/json', 'Authorization': 'Basic YWRtaW46YWRtaW4='}</msg>
+<status status="PASS" starttime="20210524 17:46:56.211" endtime="20210524 17:46:56.211"/>
+</kw>
+<kw name="Delete On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/customer/address/${addressName}?</arg>
+<arg>params=${queryParams}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20210524 17:46:56.225" level="INFO">DELETE Request : url=http://localhost:8082/api/v1/customer/address/Porto?customerId=200 
+ path_url=/api/v1/customer/address/Porto?customerId=200 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46YWRtaW4=', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210524 17:46:56.225" level="INFO">DELETE Response : url=http://localhost:8082/api/v1/customer/address/Porto?customerId=200 
+ status=404, reason= 
+ headers={'Set-Cookie': 'JSESSIONID=97079541CF11CEF769EB4BCA07D73A38; Path=/api/v1; HttpOnly', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 24 May 2021 16:46:56 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"httpStatusCode":404,"messages":[{"messageKey":"customerAddressNotFound","message":"com.broadleafcommerce.rest.api.exception.BroadleafWebServicesException.customerAddressNotFound"}]} 
+ </msg>
+<msg timestamp="20210524 17:46:56.226" level="FAIL">HTTPError: 404 Client Error:  for url: http://localhost:8082/api/v1/customer/address/Porto?customerId=200</msg>
+<status status="FAIL" starttime="20210524 17:46:56.211" endtime="20210524 17:46:56.226"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.227" endtime="20210524 17:46:56.227"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.227" endtime="20210524 17:46:56.227"/>
+</kw>
+<status status="FAIL" starttime="20210524 17:46:56.210" endtime="20210524 17:46:56.227">HTTPError: 404 Client Error:  for url: http://localhost:8082/api/v1/customer/address/Porto?customerId=200</status>
+</test>
+<status status="FAIL" starttime="20210524 17:46:56.207" endtime="20210524 17:46:56.228"/>
+</suite>
+<suite id="s1-s7" name="TC 006 PUT Customer" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_006_PUT_Customer.robot">
+<test id="s1-s7-t1" name="TC_006_PUT_Customer">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${queryParams}</var>
+<arg>customerId=200</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.234" level="INFO">${queryParams} = {'customerId': '200'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.234" endtime="20210524 17:46:56.234"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:56.234" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:56.234" endtime="20210524 17:46:56.235"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${inner}</var>
+<arg>customerId=200</arg>
+<arg>id=201</arg>
+<arg>name=naofunciona</arg>
+<arg>value=0</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.236" level="INFO">${inner} = {'customerId': '200', 'id': '201', 'name': 'naofunciona', 'value': '0'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.236" endtime="20210524 17:46:56.236"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${array}</var>
+<arg>${inner}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20210524 17:46:56.236" level="INFO">${array} = [{'customerId': '200', 'id': '201', 'name': 'naofunciona', 'value': '0'}]</msg>
+<status status="PASS" starttime="20210524 17:46:56.236" endtime="20210524 17:46:56.236"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>customerAttributes=${array}</arg>
+<arg>emailAddress=brunooliveira@gmail.com</arg>
+<arg>firstName=brunoA</arg>
+<arg>id=201</arg>
+<arg>lastName=OliveiraA</arg>
+<arg>registered=True</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.237" level="INFO">${body} = {'customerAttributes': [{'customerId': '200', 'id': '201', 'name': 'naofunciona', 'value': '0'}], 'emailAddress': 'brunooliveira@gmail.com', 'firstName': 'brunoA', 'id': '201', 'lastName': 'OliveiraA'...</msg>
+<status status="PASS" starttime="20210524 17:46:56.237" endtime="20210524 17:46:56.237"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Accept=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.237" level="INFO">${header} = {'Accept': 'application/json'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.237" endtime="20210524 17:46:56.237"/>
+</kw>
+<kw name="Put On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/customer?</arg>
+<arg>params=${queryParams}</arg>
+<arg>json=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20210524 17:46:56.270" level="INFO">PUT Request : url=http://localhost:8082/api/v1/customer?customerId=200 
+ path_url=/api/v1/customer?customerId=200 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Length': '223', 'Content-Type': 'application/json'} 
+ body=b'{"customerAttributes": [{"customerId": "200", "id": "201", "name": "naofunciona", "value": "0"}], "emailAddress": "brunooliveira@gmail.com", "firstName": "brunoA", "id": "201", "lastName": "OliveiraA", "registered": "True"}' 
+ </msg>
+<msg timestamp="20210524 17:46:56.270" level="INFO">PUT Response : url=http://localhost:8082/api/v1/customer?customerId=200 
+ status=200, reason= 
+ headers={'Set-Cookie': 'JSESSIONID=4171510E32D6B2DFC9CC143493A90127; Path=/api/v1; HttpOnly', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 24 May 2021 16:46:56 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":346,"firstName":"brunoA","lastName":"OliveiraA","emailAddress":"brunooliveira@gmail.com","registered":false,"customerAttributes":[{"id":201,"name":"naofunciona","value":"0","customerId":346}]} 
+ </msg>
+<msg timestamp="20210524 17:46:56.270" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210524 17:46:56.238" endtime="20210524 17:46:56.270"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.270" endtime="20210524 17:46:56.271"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210524 17:46:56.271" endtime="20210524 17:46:56.271"/>
+</kw>
+<status status="PASS" starttime="20210524 17:46:56.233" endtime="20210524 17:46:56.271"/>
+</test>
+<status status="PASS" starttime="20210524 17:46:56.229" endtime="20210524 17:46:56.272"/>
+</suite>
+<suite id="s1-s8" name="TC 007 PUT Customer Address" source="C:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_007_PUT_Customer_Address.robot">
+<test id="s1-s8-t1" name="TC_007_PUT_Customer">
+<kw name="Load JSON From File" library="JSONLibrary">
+<var>${json}</var>
+<arg>Tests/Swagger/address.json</arg>
+<doc>Load JSON from file.</doc>
+<msg timestamp="20210524 17:46:56.276" level="INFO">${json} = [{'address': {'addressLine1': 'string', 'addressLine2': 'string', 'addressLine3': 'string', 'city': 'string', 'companyName': 'string', 'country': {'abbreviation': 'string', 'name': 'string'}, 'firstNa...</msg>
+<status status="PASS" starttime="20210524 17:46:56.275" endtime="20210524 17:46:56.276"/>
+</kw>
+<kw name="Update Value To Json" library="JSONLibrary">
+<var>${json_object}</var>
+<arg>${json}</arg>
+<arg>$.address.addressLine1</arg>
+<arg>Ratchadapisek Road</arg>
+<doc>Update value to JSON using JSONPath</doc>
+<msg timestamp="20210524 17:46:56.283" level="INFO">${json_object} = [{'address': {'addressLine1': 'string', 'addressLine2': 'string', 'addressLine3': 'string', 'city': 'string', 'companyName': 'string', 'country': {'abbreviation': 'string', 'name': 'string'}, 'firstNa...</msg>
+<status status="PASS" starttime="20210524 17:46:56.276" endtime="20210524 17:46:56.283"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${queryParams}</var>
+<arg>customerId=200</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.293" level="INFO">${queryParams} = {'customerId': '200'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.293" endtime="20210524 17:46:56.293"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>customer</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210524 17:46:56.293" level="INFO">Creating Session using : alias=customer, url=http://localhost:8082/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210524 17:46:56.293" endtime="20210524 17:46:56.293"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>data=${json}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.294" level="INFO">${body} = {'data': [{'address': {'addressLine1': 'string', 'addressLine2': 'string', 'addressLine3': 'string', 'city': 'string', 'companyName': 'string', 'country': {'abbreviation': 'string', 'name': 'string'},...</msg>
+<status status="PASS" starttime="20210524 17:46:56.294" endtime="20210524 17:46:56.294"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Accept=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210524 17:46:56.294" level="INFO">${header} = {'Accept': 'application/json'}</msg>
+<status status="PASS" starttime="20210524 17:46:56.294" endtime="20210524 17:46:56.294"/>
+</kw>
+<kw name="Put On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>customer</arg>
+<arg>/customer/address?</arg>
+<arg>params=${queryParams}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20210524 17:46:56.319" level="INFO">PUT Request : url=http://localhost:8082/api/v1/customer/address?customerId=200 
+ path_url=/api/v1/customer/address?customerId=200 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=data=address&amp;data=addressName&amp;data=applicationContext&amp;data=archived&amp;data=id 
+ </msg>
+<msg timestamp="20210524 17:46:56.319" level="INFO">PUT Response : url=http://localhost:8082/api/v1/customer/address?customerId=200 
+ status=415, reason= 
+ headers={'Set-Cookie': 'JSESSIONID=D8E5055E7E5B912E91611B88CC8F2FF2; Path=/api/v1; HttpOnly', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 24 May 2021 16:46:56 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"httpStatusCode":415,"messages":[{"messageKey":"contentTypeNotSupported","message":"com.broadleafcommerce.rest.api.exception.BroadleafWebServicesException.contentTypeNotSupported"}]} 
+ </msg>
+<msg timestamp="20210524 17:46:56.319" level="FAIL">HTTPError: 415 Client Error:  for url: http://localhost:8082/api/v1/customer/address?customerId=200</msg>
+<status status="FAIL" starttime="20210524 17:46:56.295" endtime="20210524 17:46:56.319"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.320" endtime="20210524 17:46:56.320"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210524 17:46:56.320" endtime="20210524 17:46:56.320"/>
+</kw>
+<status status="FAIL" starttime="20210524 17:46:56.275" endtime="20210524 17:46:56.320">HTTPError: 415 Client Error:  for url: http://localhost:8082/api/v1/customer/address?customerId=200</status>
+</test>
+<status status="FAIL" starttime="20210524 17:46:56.273" endtime="20210524 17:46:56.321"/>
+</suite>
+<status status="FAIL" starttime="20210524 17:46:55.625" endtime="20210524 17:46:56.322"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="4" skip="0" id="s1" name="Swagger">Swagger</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Put">Swagger.Put</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="TC 001 GET Request catalog categories">Swagger.TC 001 GET Request catalog categories</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s3" name="TC 002 POST ERROR Customer">Swagger.TC 002 POST ERROR Customer</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s4" name="TC 003 GET Customer">Swagger.TC 003 GET Customer</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s5" name="TC 004 POST Customer">Swagger.TC 004 POST Customer</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s6" name="TC 005 DELETE Customer">Swagger.TC 005 DELETE Customer</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s7" name="TC 006 PUT Customer">Swagger.TC 006 PUT Customer</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s8" name="TC 007 PUT Customer Address">Swagger.TC 007 PUT Customer Address</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

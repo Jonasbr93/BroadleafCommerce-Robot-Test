@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.2 (Python 3.8.8 on win32)" generated="20210520 10:14:40.282" rpa="false" schemaversion="2">
+<suite id="s1" name="TC 001 GET Request catalog categories" source="c:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_001_GET_Request_catalog_categories.robot">
+<test id="s1-t1" name="TC_001_Get_Request_catalog">
+<kw name="Create session">
+<arg>catalog</arg>
+<arg>${Base_URL}</arg>
+<msg timestamp="20210520 10:14:40.312" level="FAIL">No keyword with name 'Create session' found.</msg>
+<status status="FAIL" starttime="20210520 10:14:40.312" endtime="20210520 10:14:40.313"/>
+</kw>
+<kw name="Get On Session">
+<var>${response}=</var>
+<arg>catalog</arg>
+<arg>/catalog/categories</arg>
+<status status="NOT RUN" starttime="20210520 10:14:40.314" endtime="20210520 10:14:40.314"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210520 10:14:40.314" endtime="20210520 10:14:40.314"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20210520 10:14:40.314" endtime="20210520 10:14:40.314"/>
+</kw>
+<status status="FAIL" starttime="20210520 10:14:40.311" endtime="20210520 10:14:40.314">No keyword with name 'Create session' found.</status>
+</test>
+<status status="FAIL" starttime="20210520 10:14:40.284" endtime="20210520 10:14:40.315"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC 001 GET Request catalog categories">TC 001 GET Request catalog categories</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210520 10:14:40.310" level="ERROR">Error in file 'c:\Users\Jonat\PycharmProjects\broadleaf-heatclinic\Tests\Swagger\TC_001_GET_Request_catalog_categories.robot' on line 2: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\Users\Jonat\.vscode\extensions\robocorp.robotframework-lsp-0.16.0\src\robotframework_debug_adapter
+  c:\Users\Jonat\PycharmProjects\broadleaf-heatclinic
+  c:\Users\Jonat\.vscode\extensions\robocorp.robotframework-lsp-0.16.0\src
+  c:\Users\Jonat\.vscode\extensions\robocorp.robotframework-lsp-0.16.0\src\robotframework_ls\vendored
+  C:\Users\Jonat\AppData\Local\robocorp\live\2aa1db4bb1a50e5e\python38.zip
+  C:\Users\Jonat\AppData\Local\robocorp\live\2aa1db4bb1a50e5e\DLLs
+  C:\Users\Jonat\AppData\Local\robocorp\live\2aa1db4bb1a50e5e\lib
+  C:\Users\Jonat\AppData\Local\robocorp\live\2aa1db4bb1a50e5e
+  C:\Users\Jonat\AppData\Local\robocorp\live\2aa1db4bb1a50e5e\lib\site-packages</msg>
+</errors>
+</robot>

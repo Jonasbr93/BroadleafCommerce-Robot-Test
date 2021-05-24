@@ -1,0 +1,77 @@
+[
+  {
+    "address": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "addressLine3": "string",
+      "city": "string",
+      "companyName": "string",
+      "country": {
+        "abbreviation": "string",
+        "name": "string"
+      },
+      "firstName": "string",
+      "id": 0,
+      "isBusiness": true,
+      "isDefault": true,
+      "isoCountryAlpha2": {
+        "alpha2": "string",
+        "name": "string"
+      },
+      "isoCountrySubdivision": "string",
+      "lastName": "string",
+      "phoneFax": {
+        "id": 0,
+        "isActive": true,
+        "isDefault": true,
+        "phoneNumber": "string"
+      },
+      "phonePrimary": {
+        "id": 0,
+        "isActive": true,
+        "isDefault": true,
+        "phoneNumber": "string"
+      },
+      "phoneSecondary": {
+        "id": 0,
+        "isActive": true,
+        "isDefault": true,
+        "phoneNumber": "string"
+      },
+      "postalCode": "string",
+      "state": {
+        "abbreviation": "string",
+        "name": "string"
+      },
+      "stateProvinceRegion": "string"
+    },
+    "addressName": "string",
+    "applicationContext": {
+      "applicationName": "string",
+      "autowireCapableBeanFactory": {},
+      "beanDefinitionCount": 0,
+      "beanDefinitionNames": [
+        "string"
+      ],
+      "classLoader": {
+        "defaultAssertionStatus": true,
+        "parent": {}
+      },
+      "displayName": "string",
+      "environment": {
+        "activeProfiles": [
+          "string"
+        ],
+        "defaultProfiles": [
+          "string"
+        ]
+      },
+      "id": "string",
+      "parent": {},
+      "parentBeanFactory": {},
+      "startupDate": 0
+    },
+    "archived": {},
+    "id": 0
+  }
+]
